@@ -24,8 +24,18 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-
-
+            <TextBlock Text="XML Preview" Grid.Row="0" Grid.Column="0" FontSize="15" Margin="2"/>
+            <ScrollViewer Grid.Row="1" Grid.Column="0" Margin="2">
+                <TextBlock x:Name="textBlock_xmlPreview" TextWrapping="NoWrap" Text="{Binding formatedXml}"/>
+            </ScrollViewer>
+            <TextBlock Text="JSON Preview" Grid.Row="0" Grid.Column="1" FontSize="15" Margin="2"/>
+            <ScrollViewer Grid.Row="2" Grid.Column="1" Margin="2">
+                <TextBlock x:Name="textBlock_jsonPreview" TextWrapping="NoWrap" Text="{Binding formatedJson}"/>
+            </ScrollViewer>
+            <TextBlock Text="Filtered JSON Preview" Grid.Row="0" Grid.Column="2" FontSize="15" Margin="2"/>
+            <ScrollViewer Grid.Row="2" Grid.Column="2" Margin="2">
+                <TextBlock  x:Name="textBlock_filteredJsonPreview" TextWrapping="NoWrap" Text="{Binding formatedFilteredJson}"/>
+            </ScrollViewer>
         </Grid>
 
         <Grid x:Name="grid_bottomGrid" Grid.Row="1" Margin="2">
@@ -35,9 +45,8 @@
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
 
-            <Button x:Name="button_action"  Grid.Column="0" Content="Akcija" MinHeight="25" MinWidth="100" Margin="2"/>
-            <Button x:Name="button_close"  Grid.Column="2" Content="Zatvori" MinHeight="25" MinWidth="100" Margin="2"/>
+            <Button x:Name="button_action"  Grid.Column="0" Content="Akcija" MinHeight="25" MinWidth="100" Margin="2" Click="button_action_Click"/>
+            <Button x:Name="button_close"  Grid.Column="2" Content="Zatvori" MinHeight="25" MinWidth="100" Margin="2" Click="button_close_Click"/>
         </Grid>
     </Grid>
-
 </Window>
