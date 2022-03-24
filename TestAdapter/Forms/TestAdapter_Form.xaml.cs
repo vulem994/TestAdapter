@@ -95,8 +95,10 @@ namespace TestAdapter.Forms
             var doc = LoadXmlDocument(defaultXmlPath);
             if (doc != null)
             {
+                formatedXml = FormatXml(doc.OuterXml);
+
                 //T6
-                order = XMLSerializer.Deserialize<Order>(formatedXml);
+                order = XMLSerializer.Deserialize<Order>(doc.OuterXml);
 
                 if (order != null)
                 {
@@ -134,10 +136,7 @@ namespace TestAdapter.Forms
                 {
                     XmlDocument doc = new XmlDocument();
                     doc.Load(inPath);
-                    string innerXml = doc.InnerXml;
-                    string outerXml = doc.OuterXml;
 
-                    formatedXml = FormatXml(doc.OuterXml);
                     return doc;
                 }
             }
@@ -152,7 +151,7 @@ namespace TestAdapter.Forms
         string FormatXml(string inXmlString)
         {
             try
-            { 
+            {
                 XDocument formatedDoc = XDocument.Parse(inXmlString);
                 return formatedDoc.ToString();
             }
